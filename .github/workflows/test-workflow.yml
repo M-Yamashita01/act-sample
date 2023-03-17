@@ -1,0 +1,20 @@
+name: Test workflow
+
+on:
+  push:
+    branches:
+      - main
+
+
+jobs:
+  loginUsingAction:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Azure Version
+        run: az --version
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+         creds: ${{ secrets.AZURE_CREDENTIALS }}
